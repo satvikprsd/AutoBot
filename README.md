@@ -26,8 +26,8 @@
 ### 1. Clone the Repository
 
 ```bash path=null start=null
-git clone https://github.com/satvikprsd/autobot.git
-cd autobot
+git clone https://github.com/satvikprsd/AutoBot.git
+cd AutoBot
 ```
 
 ### 2. Install Dependencies
@@ -212,8 +212,8 @@ CMD ["node", "index.js"]
 
 ```bash path=null start=null
 # Clone your fork
-git clone https://github.com/yourusername/autobot.git
-cd autobot
+git clone https://github.com/yourusername/AutoBot.git
+cd AutoBot
 
 # Install dependencies
 npm install
