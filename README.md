@@ -4,16 +4,7 @@
 [![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](https://opensource.org/licenses/ISC)
 [![Express](https://img.shields.io/badge/Express-5.1.0-lightgrey.svg)](https://expressjs.com/)
 
-**AutoBot** is an intelligent webhook service that automatically triggers deployments by listening to GitHub repository changes. When a push event is detected, AutoBot creates a deployment log entry and commits it back to the repository, triggering automated deployment pipelines (perfect for Vercel, Netlify, etc.).
-
-## ✨ Features
-
-- 🔄 **Automatic Deployment Triggers**: Listens for GitHub webhooks and creates trigger commits
-- 🛡️ **Loop Prevention**: Smart detection to avoid infinite commit loops from bot actions
-- 📝 **Deployment Logging**: Maintains a timestamped log of all deployment triggers
-- 🔧 **Configurable**: Fully customizable through environment variables
-- 🚀 **Zero-downtime**: Lightweight Express.js server with minimal resource usage
-- 🔐 **Secure**: Token-based GitHub authentication with proper error handling
+**AutoBot** is an intelligent webhook service that automatically triggers deployments by listening to Private GitHub repository changes. When a push event is detected, AutoBot creates a deployment log entry and commits it back to the repository, triggering automated deployment pipelines (perfect for Vercel, Netlify, etc.).
 
 ## 🛠️ Technology Stack
 
@@ -35,7 +26,7 @@
 ### 1. Clone the Repository
 
 ```bash path=null start=null
-git clone https://github.com/yourusername/autobot.git
+git clone https://github.com/satvikprsd/autobot.git
 cd autobot
 ```
 
@@ -70,15 +61,22 @@ The service will start on the configured port (default: 3000) and display:
 🚀 Listening on port 3000 for GitHub webhooks...
 ```
 
+```bash path=null start=null
+# For local Webhook testing use ngrok
+ngrok http 3000
+```
+
+Add the given url the repo's webhook payload url
+
 ## ⚙️ Environment Variables
 
 | Variable | Required | Default | Description |
 |----------|----------|---------|-------------|
 | `GITHUB_TOKEN` | ✅ Yes | - | Personal Access Token for GitHub API authentication |
 | `REPO_URL` | ✅ Yes | - | HTTPS URL of the target GitHub repository |
+| `AUTHOR_EMAIL` | ✅ Yes| - | Repo's Owner Email |
 | `LOCAL_PATH` | ❌ No | `./repo` | Local directory for repository cloning/operations |
 | `BOT_NAME` | ❌ No | `auto-deploy-bot` | Name used for bot commits (avoid infinite loops) |
-| `AUTHOR_EMAIL` | ❌ No | `satvikprsd@gmail.com` | Email address for bot commits |
 | `PORT` | ❌ No | `3000` | Port number for the webhook server |
 
 ### GitHub Token Setup
@@ -106,8 +104,8 @@ The service will start on the configured port (default: 3000) and display:
 For local testing, use a tool like [ngrok](https://ngrok.com/) to expose your local server:
 
 ```bash path=null start=null
-# Install ngrok
-npm install -g ngrok
+# Install ngrok (macOS) refer https://dashboard.ngrok.com/get-started/setup
+brew install ngrok
 
 # Expose local port
 ngrok http 3000
@@ -148,14 +146,6 @@ AutoBot/
 └── 📁 repo/                # Cloned repository workspace (auto-generated)
 ```
 
-## 🔒 Security Considerations
-
-- **Environment Variables**: Never commit `.env` files to version control
-- **Token Security**: Use GitHub Personal Access Tokens with minimal required permissions
-- **Webhook Validation**: Consider implementing webhook signature validation for production
-- **Network Security**: Run behind a reverse proxy (nginx, Apache) in production
-- **HTTPS**: Always use HTTPS in production environments
-
 ## 🐛 Troubleshooting
 
 ### Common Issues
@@ -177,13 +167,6 @@ AutoBot/
 - Verify the `LOCAL_PATH` directory is writable
 - Ensure Git is installed and accessible
 
-### Debug Mode
-
-Enable detailed logging by monitoring the console output:
-
-```bash path=null start=null
-node index.js | tee autobot.log
-```
 
 ## 🚀 Deployment
 
@@ -255,6 +238,6 @@ This project is licensed under the ISC License - see the [LICENSE](LICENSE) file
 
 ---
 
-**Made with ❤️ for automated deployments**
+**Made with ❤️ for automated deployments by Satvik Prasad**
 
 *If you find this project useful, please consider giving it a ⭐ on GitHub!*

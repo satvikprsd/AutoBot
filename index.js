@@ -20,10 +20,14 @@ if (!REPO_URL) {
   console.error("❌ REPO_URL is not set in environment variables.");
   process.exit(1);
 }
+const AUTHOR_EMAIL = process.env.AUTHOR_EMAIL;
+if (!AUTHOR_EMAIL) {
+  console.error("❌ AUTHOR_EMAIL is not set in environment variables.");
+  process.exit(1);
+}
 const REPO_URL_WITH_TOKEN = REPO_URL.replace('https://',`https://${GITHUB_TOKEN}@`);
 const LOCAL_PATH = process.env.LOCAL_PATH ||  "./repo";
 const BOT_NAME = process.env.BOT_NAME || "auto-deploy-bot";
-const AUTHOR_EMAIL = process.env.AUTHOR_EMAIL || "satvikprsd@gmail.com";
 const PORT = process.env.PORT || 3000 ;
 
 // init git
