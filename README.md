@@ -44,7 +44,7 @@ Copy the sample environment file and configure it:
 cp .env_sample .env
 ```
 
-Edit `.env` with your specific values (see [Environment Variables](#-environment-variables) section below).
+Edit `.env` with your specific values.
 
 ### 4. Start the Service
 
@@ -66,7 +66,7 @@ The service will start on the configured port (default: 3000) and display:
 ngrok http 3000
 ```
 
-Add the given url the repo's webhook payload url
+Add the given url to the repo's webhook payload url
 
 ## ⚙️ Environment Variables
 
@@ -120,7 +120,7 @@ sequenceDiagram
     participant Dev as Developer
     participant GH as GitHub
     participant AB as AutoBot
-    participant Vercel as Deployment Platform
+    participant Vercel as Vercel
     
     Dev->>GH: Push code changes
     GH->>AB: Send webhook notification
@@ -212,7 +212,7 @@ CMD ["node", "index.js"]
 
 ```bash path=null start=null
 # Clone your fork
-git clone https://github.com/yourusername/AutoBot.git
+git clone https://github.com/satvikprsd/AutoBot.git
 cd AutoBot
 
 # Install dependencies
