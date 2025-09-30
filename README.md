@@ -226,10 +226,6 @@ cp .env_sample .env
 npm start
 ```
 
-## 📄 License
-
-This project is licensed under the ISC License - see the [LICENSE](LICENSE) file for details.
-
 ## 🙏 Acknowledgments
 
 - [Express.js](https://expressjs.com/) - Fast, unopinionated web framework
